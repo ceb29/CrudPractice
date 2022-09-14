@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct AddUserView: View {
-    @State private var firstName : String = ""
-    @State private var lastName : String = ""
-    @State private var users : [String] = []
+    @StateObject var addUserViewModel = AddUserViewModel()
     
     var body: some View {
         ZStack {
@@ -25,7 +23,7 @@ struct AddUserView: View {
                         Text("First Name")
                             .frame(maxWidth: 100)
                         
-                        TextField("", text: $firstName)
+                        TextField("", text: $addUserViewModel.firstName)
                             .padding(8)
                             .border(.black)
                         
@@ -34,16 +32,22 @@ struct AddUserView: View {
                         Text("Last Name")
                             .frame(maxWidth: 100)
                         
-                        TextField("", text: $lastName)
+                        TextField("", text: $addUserViewModel.lastName)
                             .padding(8)
                             .border(.black)
                     }
                     
-                        
+                    //Alert Messages
+                    if addUserViewModel.addUserFlag == true{
+                        Text("Please fill in both fields")
+                            .foregroundColor(.red)
+                    }
+                    
+                    
                     //Add and Save Buttons
                     HStack(){
                         Button("add"){
-                            users.append(firstName + " " + lastName)
+                            addUserViewModel.addUser()
                         }
                         .padding()
                             .background(.blue)
@@ -63,7 +67,7 @@ struct AddUserView: View {
                         Spacer()
                     }
                     List{
-                        ForEach(users, id: \.self){user in
+                        ForEach(addUserViewModel.users, id: \.self){user in
                             Text(user)
                         }
                     }
