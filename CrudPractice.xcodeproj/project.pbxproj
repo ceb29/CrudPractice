@@ -14,6 +14,8 @@
 		84B0ABE328D25D0300F47069 /* CrudPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABE228D25D0300F47069 /* CrudPracticeTests.swift */; };
 		84B0ABED28D25D0300F47069 /* CrudPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABEC28D25D0300F47069 /* CrudPracticeUITests.swift */; };
 		84B0ABEF28D25D0300F47069 /* CrudPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABEE28D25D0300F47069 /* CrudPracticeUITestsLaunchTests.swift */; };
+		84B0ABFF28D25DDC00F47069 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABFE28D25DDB00F47069 /* AddUserView.swift */; };
+		84B0AC0128D25DF300F47069 /* UpdateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AC0028D25DF300F47069 /* UpdateUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		84B0ABE828D25D0300F47069 /* CrudPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrudPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B0ABEC28D25D0300F47069 /* CrudPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudPracticeUITests.swift; sourceTree = "<group>"; };
 		84B0ABEE28D25D0300F47069 /* CrudPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		84B0ABFE28D25DDB00F47069 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		84B0AC0028D25DF300F47069 /* UpdateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,9 @@
 		84B0ABD028D25D0100F47069 /* CrudPractice */ = {
 			isa = PBXGroup;
 			children = (
+				84B0ABFD28D25D2300F47069 /* ViewModel */,
+				84B0ABFC28D25D1D00F47069 /* View */,
+				84B0ABFB28D25D1100F47069 /* Model */,
 				84B0ABD128D25D0100F47069 /* CrudPracticeApp.swift */,
 				84B0ABD328D25D0100F47069 /* ContentView.swift */,
 				84B0ABD528D25D0300F47069 /* Assets.xcassets */,
@@ -125,6 +132,29 @@
 				84B0ABEE28D25D0300F47069 /* CrudPracticeUITestsLaunchTests.swift */,
 			);
 			path = CrudPracticeUITests;
+			sourceTree = "<group>";
+		};
+		84B0ABFB28D25D1100F47069 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84B0ABFC28D25D1D00F47069 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84B0ABFE28D25DDB00F47069 /* AddUserView.swift */,
+				84B0AC0028D25DF300F47069 /* UpdateUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84B0ABFD28D25D2300F47069 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B0AC0128D25DF300F47069 /* UpdateUserView.swift in Sources */,
 				84B0ABD428D25D0100F47069 /* ContentView.swift in Sources */,
 				84B0ABD228D25D0100F47069 /* CrudPracticeApp.swift in Sources */,
+				84B0ABFF28D25DDC00F47069 /* AddUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
