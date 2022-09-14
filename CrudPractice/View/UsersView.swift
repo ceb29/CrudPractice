@@ -10,29 +10,46 @@ import SwiftUI
 struct UsersView: View {
     @StateObject var usersViewModel = UsersViewModel()
     var body: some View {
-        List{
-            ForEach(usersViewModel.users, id: \.self){user in
-                VStack{
-                    HStack{
-                        Text("First Name: ")
-                        Text(user.firstName)
-                        Spacer()
+        
+        ZStack {
+            Color(.red)
+                .ignoresSafeArea()
+            VStack {
+                List{
+                    ForEach(usersViewModel.users, id: \.self){user in
+                        Section{
+                            VStack{
+                                HStack{
+                                    Text("First Name: ")
+                                    Text(user.firstName)
+                                    Spacer()
+                                }
+                                HStack{
+                                    Text("Last Name: ")
+                                    Text(user.lastName)
+                                    Spacer()
+                                }
+                            }
+                            .frame(height: 50)
+                            .padding()
+                        }
+                       
                     }
-                    HStack{
-                        Text("Last Name: ")
-                        Text(user.lastName)
-                        Spacer()
-                    }
+                    
+                    //.listRowBackground(Color(.blue))
                 }
-                .padding()
+                .background(.blue)
+                .overlay(
+                    AddButtonView()
+                        .padding()
+                    , alignment: .bottomTrailing
+                )
+            .onAppear {usersViewModel.getUsers()}
             }
+            .padding(.top, 50)
+            .padding(.bottom, 50)
+            
         }
-        .overlay(
-            AddButtonView()
-                .padding()
-            , alignment: .bottomTrailing
-        )
-        .onAppear {usersViewModel.getUsers()}
     }
 }
 
