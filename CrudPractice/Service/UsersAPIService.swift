@@ -8,7 +8,7 @@
 //to do:
 //add comments
 //pass errors in completion
-//add missing methods for update, delete, and create
+//add missing methods for update and delete
 //add alerts if data fails to load in views
 //add alerts for success (checkmarks in views)
 
@@ -89,8 +89,66 @@ class UsersAPIService{
         datask.resume()
     }
     
-    func addUser(body: [String: String]){
-        
+    //need to add custom type to return status in completion
+    func addUser(user: NewUserModel, comp: @escaping (Bool) -> ()){
+        var status: Bool = false
+        do{
+            let userData = try JSONEncoder().encode(user)
+            let url = URL(string: "http://localhost:3000/users")
+            
+            guard url != nil else{
+                print("url nil")
+                comp(status)
+                return
+            }
+            
+            var urlRequest = URLRequest(url: url!)
+            urlRequest.httpMethod = "Post"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: userData){data, response, error in
+                guard error == nil else{
+                    print("error during upload task")
+                    comp(status)
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse else{
+                    print("no response")
+                    comp(status)
+                    return
+                }
+                
+                guard response.statusCode > 199, response.statusCode < 300 else{
+                    print("error with server")
+                    print(response.statusCode)
+                    comp(status)
+                    return
+                }
+                
+                if response.mimeType != nil && response.mimeType == "application/json"{
+                    if data != nil{
+                        let dataReturned = String(data: data!, encoding: .utf8)
+                        guard dataReturned != nil else{
+                            print("failed to convert data")
+                            comp(status) //need to add enumeration for different status cases
+                            return
+                        }
+                        print("Post data: " + dataReturned!)
+                    }
+                    else{
+                        print("no data returned from post")
+                    }
+                }
+                status = true
+                comp(status)
+            }
+            uploadTask.resume()
+        }
+        catch{
+            print("json encoder error")
+            comp(status)
+        }
     }
     
     func updateUser(id: Int, body: [String : String]){

@@ -30,15 +30,19 @@ struct SaveNewUserView: View {
                     
                     //Alert Messages
                     if saveNewUserViewModel.addUserFlag == true{
-                        Text("Please fill in both fields")
+                        Text("Please fill in all fields")
                             .foregroundColor(.red)
+                    }
+                    
+                    if saveNewUserViewModel.successfullFlag == true{
+                        Text("User successfully added")
                     }
                     
                     //Save Button
                     CustomButtonView(image: "square.and.arrow.down", label: "Save")
                         .onTapGesture {
                             print("save")
-                            //saveNewUserViewModel.addUser()
+                            saveNewUserViewModel.addUser()
                         }
                     
                 } //VStack
