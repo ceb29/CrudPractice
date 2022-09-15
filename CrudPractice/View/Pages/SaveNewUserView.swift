@@ -35,6 +35,10 @@ struct SaveNewUserView: View {
                     
                     //Save Button
                     CustomButtonView(image: "square.and.arrow.down", label: "Save")
+                        .onTapGesture {
+                            print("save")
+                            //saveNewUserViewModel.addUser()
+                        }
                     
                 } //VStack
                     .padding()

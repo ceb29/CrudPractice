@@ -15,7 +15,7 @@ struct UserTextFieldView: View {
         HStack {
             Text(label)
                 .frame(maxWidth: 100, alignment: .leading)
-            
+
             TextField("", text: $text)
                 .padding(8)
                 .border(.black)

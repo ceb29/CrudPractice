@@ -48,4 +48,20 @@ class UsersAPIService{
         datask.resume()
     }
     
+    func getOneUser(id: Int){
+        
+    }
+    
+    func addUser(body: [String: String]){
+        
+    }
+    
+    func updateUser(id: Int, body: [String : String]){
+        
+    }
+    
+    func deleteUser(id: Int){
+        
+    }
+    
 }
