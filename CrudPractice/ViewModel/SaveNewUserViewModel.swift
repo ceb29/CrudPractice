@@ -7,17 +7,13 @@
 
 import Foundation
 
-class AddUserViewModel: ObservableObject{
-    @Published var users: [String] = []
-    @Published var firstName: String = ""
-    @Published var lastName: String = ""
-    @Published var addUserFlag : Bool = false
-    
+class SaveNewUserViewModel: ObservableObject{
+    @Published var user = User(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
+    @Published var addUserFlag: Bool = false
+    @Published var succesfullFlag: Bool = false
+
     func addUser(){
-        if checkFieldNotEmpty(text: firstName) && checkFieldNotEmpty(text: lastName){
-            users.append(firstName + " " + lastName)
-            firstName = ""
-            lastName = ""
+        if checkFieldNotEmpty(text: user.name) && checkFieldNotEmpty(text: user.occupation) &&  checkFieldNotEmpty(text: user.education) &&  checkFieldNotEmpty(text: user.phone) && checkFieldNotEmpty(text: user.about){
             addUserFlag = false
         }
         else{
@@ -32,3 +28,4 @@ class AddUserViewModel: ObservableObject{
         return true
     }
 }
+
