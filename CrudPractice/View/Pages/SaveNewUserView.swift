@@ -21,50 +21,14 @@ struct SaveNewUserView: View {
                     ProfileImageView()
                     
                     // TextFields
-                    HStack {
-                        Text("Name")
-                            .frame(maxWidth: 100, alignment: .leading)
-                        
-                        TextField("", text: $saveNewUserViewModel.firstName)
-                            .padding(8)
-                            .border(.black)
-                        
-                    }
-                    HStack {
-                        Text("Occupation")
-                            .frame(maxWidth: 100, alignment: .leading)
-                        
-                        TextField("", text: $saveNewUserViewModel.lastName)
-                            .padding(8)
-                            .border(.black)
-                    }
-                    HStack {
-                        Text("Education")
-                            .frame(maxWidth: 100, alignment: .leading)
-                        
-                        TextField("", text: $saveNewUserViewModel.lastName)
-                            .padding(8)
-                            .border(.black)
-                    }
-                    HStack {
-                        Text("Phone")
-                            .frame(maxWidth: 100, alignment: .leading)
-                        
-                        TextField("", text: $saveNewUserViewModel.lastName)
-                            .padding(8)
-                            .border(.black)
-                    }
-                    HStack {
-                        Text("About")
-                            .frame(maxWidth: 100, alignment: .leading)
-                            
-                        TextField("", text: $saveNewUserViewModel.lastName)
-                            .padding(8)
-                            .border(.black)
-                    }
+                    UserTextFieldView(label: "Name", text: $saveNewUserViewModel.user.name)
+                    UserTextFieldView(label: "Occupation", text: $saveNewUserViewModel.user.occupation)
+                    UserTextFieldView(label: "Education", text: $saveNewUserViewModel.user.education)
+                    UserTextFieldView(label: "Phone", text: $saveNewUserViewModel.user.phone)
+                    UserTextFieldView(label: "About", text: $saveNewUserViewModel.user.about)
                     
                     //Alert Messages
-                    if addUserViewModel.addUserFlag == true{
+                    if saveNewUserViewModel.addUserFlag == true{
                         Text("Please fill in both fields")
                             .foregroundColor(.red)
                     }
