@@ -22,11 +22,7 @@ struct SaveNewUserView: View {
                     ProfileImageView()
                     
                     // TextFields
-                    UserTextFieldView(label: "Name", text: $saveNewUserViewModel.user.name)
-                    UserTextFieldView(label: "Occupation", text: $saveNewUserViewModel.user.occupation)
-                    UserTextFieldView(label: "Education", text: $saveNewUserViewModel.user.education)
-                    UserTextFieldView(label: "Phone", text: $saveNewUserViewModel.user.phone)
-                    UserTextFieldView(label: "About", text: $saveNewUserViewModel.user.about)
+                    UserTextFieldsCardView(name: $saveNewUserViewModel.user.name, occupation: $saveNewUserViewModel.user.occupation, education: $saveNewUserViewModel.user.education, phone: $saveNewUserViewModel.user.phone, about: $saveNewUserViewModel.user.about)
                     
                     //Alert Messages
                     if saveNewUserViewModel.addUserFlag == true{

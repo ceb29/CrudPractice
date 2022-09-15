@@ -23,27 +23,7 @@ struct ModifyUserView: View {
                         
                     
                     // TextFields
-                    UserTextFieldView(label: "Name", text: $modifyUserViewModel.user.name)
-                    
-                    
-                    UserTextFieldView(label: "Occupation", text: $modifyUserViewModel.user.occupation)
-                    HStack{
-                        Text("Education")
-                            .frame(minWidth: 100, alignment: .leading)
-                        TextEditor(text: $modifyUserViewModel.user.education)
-                            //.padding(8)
-                            .border(.black)
-                    }
-                    
-                    UserTextFieldView(label: "Phone", text: $modifyUserViewModel.user.phone)
-                    HStack{
-                        Text("About")
-                            .frame(minWidth: 100, alignment: .leading)
-                        TextEditor(text: $modifyUserViewModel.user.about)
-                            //.padding(8)
-                            .border(.black)
-                    }
-                    
+                    UserTextFieldsCardView(name: $modifyUserViewModel.user.name, occupation: $modifyUserViewModel.user.occupation, education: $modifyUserViewModel.user.education, phone: $modifyUserViewModel.user.phone, about: $modifyUserViewModel.user.about)
                     
                     //Alert Messages
                     if modifyUserViewModel.addUserFlag == true{
@@ -83,6 +63,6 @@ struct ModifyUserView: View {
 struct ModifyUserView_Previews: PreviewProvider {
     static var previews: some View {
         ModifyUserView(userID: 0)
-.previewInterfaceOrientation(.landscapeLeft)
+.previewInterfaceOrientation(.portraitUpsideDown)
     }
 }

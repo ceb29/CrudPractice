@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		846CA2BB28D3CDB8000FB1A2 /* NewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CA2BA28D3CDB8000FB1A2 /* NewUserModel.swift */; };
+		846CA2C028D3E0D2000FB1A2 /* UserTextFieldsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CA2BF28D3E0D2000FB1A2 /* UserTextFieldsCardView.swift */; };
 		84B0ABD228D25D0100F47069 /* CrudPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABD128D25D0100F47069 /* CrudPracticeApp.swift */; };
 		84B0ABD428D25D0100F47069 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABD328D25D0100F47069 /* ContentView.swift */; };
 		84B0ABD628D25D0300F47069 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B0ABD528D25D0300F47069 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		846CA2BA28D3CDB8000FB1A2 /* NewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserModel.swift; sourceTree = "<group>"; };
+		846CA2BF28D3E0D2000FB1A2 /* UserTextFieldsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTextFieldsCardView.swift; sourceTree = "<group>"; };
 		84B0ABCE28D25D0100F47069 /* CrudPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrudPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B0ABD128D25D0100F47069 /* CrudPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudPracticeApp.swift; sourceTree = "<group>"; };
 		84B0ABD328D25D0100F47069 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				84CAF33928D2AC7D0090035D /* ProfileImageView.swift */,
 				84CAF33D28D2AF580090035D /* CustomButtonView.swift */,
 				84CAF34328D2B47C0090035D /* UserTextFieldView.swift */,
+				846CA2BF28D3E0D2000FB1A2 /* UserTextFieldsCardView.swift */,
 			);
 			path = Embedded;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				84CAF34028D2B2030090035D /* SaveNewUserViewModel.swift in Sources */,
 				84CAF33C28D2ACE80090035D /* SaveNewUserView.swift in Sources */,
 				84CAF33E28D2AF580090035D /* CustomButtonView.swift in Sources */,
+				846CA2C028D3E0D2000FB1A2 /* UserTextFieldsCardView.swift in Sources */,
 				84CAF33828D2A6120090035D /* UserCardView.swift in Sources */,
 				84B0AC0F28D280B700F47069 /* AddButtonView.swift in Sources */,
 			);
