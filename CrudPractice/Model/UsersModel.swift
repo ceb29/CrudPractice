@@ -7,11 +7,7 @@
 
 import Foundation
 
-struct UsersModel: Codable{
-    var users: [User]
-}
-
-struct User: Codable, Hashable{
+struct UsersModel: Codable, Hashable{
     var id : Int
     var name: String
     var occupation: String

@@ -8,22 +8,22 @@
 import Foundation
 
 class ModifyUserViewModel: ObservableObject{
-    @Published var user = User(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
+    @Published var user = UsersModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
     @Published var addUserFlag: Bool = false
     @Published var succesfullFlag: Bool = false
     
     func getUserData(id: Int){
         //this is just for testing need to add get one user method to api service
-        UsersAPIService.shared.getUsers(comp: {[weak self] data in
+        UsersAPIService.shared.getOneUser(id: id, comp: {[weak self] data in
             guard data != nil else{
                 print("failed to get users")
                 return
             }
             
-            let usersData = data!.users
+            let usersData = data!
             
             DispatchQueue.main.async {
-                self?.user = usersData[id]
+                self?.user = usersData
             }
         })
     }

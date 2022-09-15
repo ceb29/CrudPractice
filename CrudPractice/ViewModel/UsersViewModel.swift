@@ -8,7 +8,7 @@
 import Foundation
 
 class UsersViewModel: ObservableObject{
-    @Published var users : [User] = []
+    @Published var users : [UsersModel] = []
     
     func getUsers(){
         UsersAPIService.shared.getUsers(comp: {[weak self] data in
@@ -16,11 +16,10 @@ class UsersViewModel: ObservableObject{
                 print("failed to get users")
                 return
             }
-            
-            let usersData = data!.users
+           
             
             DispatchQueue.main.async {
-                self?.users = usersData
+                self?.users = data!
             }
         })
     }

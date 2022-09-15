@@ -8,7 +8,7 @@
 import Foundation
 
 class SaveNewUserViewModel: ObservableObject{
-    @Published var user = User(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
+    @Published var user = UsersModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
     @Published var addUserFlag: Bool = false
     @Published var succesfullFlag: Bool = false
 
