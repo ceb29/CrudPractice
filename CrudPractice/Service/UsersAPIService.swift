@@ -5,6 +5,13 @@
 //  Created by admin on 9/14/22.
 //
 
+//to do:
+//add comments
+//pass errors in completion
+//add missing methods for update, delete, and create
+//add alerts if data fails to load in views
+//add alerts for success (checkmarks in views)
+
 import Foundation
 
 class UsersAPIService{

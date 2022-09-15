@@ -13,6 +13,7 @@ class ModifyUserViewModel: ObservableObject{
     @Published var succesfullFlag: Bool = false
     
     func getUserData(id: Int){
+        //this is just for testing need to add get one user method to api service
         UsersAPIService.shared.getUsers(comp: {[weak self] data in
             guard data != nil else{
                 print("failed to get users")
@@ -41,6 +42,7 @@ class ModifyUserViewModel: ObservableObject{
         }
     }
     
+    //need to fix this duplicate code
     func checkFieldNotEmpty(text: String) -> Bool{
         if text == ""{
             return false
