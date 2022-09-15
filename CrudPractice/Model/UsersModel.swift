@@ -13,6 +13,9 @@ struct UsersModel: Codable{
 
 struct User: Codable, Hashable{
     var id : Int
-    var firstName: String
-    var lastName: String
+    var name: String
+    var occupation: String
+    var education: String
+    var phone: String
+    var about: String
 }
