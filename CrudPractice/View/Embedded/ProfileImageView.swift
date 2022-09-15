@@ -13,7 +13,6 @@ struct ProfileImageView: View {
             .resizable()
             .frame(width: 70, height: 70)
             .foregroundColor(.gray)
-            .padding()
     }
 }
 

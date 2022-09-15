@@ -58,5 +58,6 @@ struct SaveNewUserView: View {
 struct SaveNewUserView_Previews: PreviewProvider {
     static var previews: some View {
         SaveNewUserView()
+.previewInterfaceOrientation(.portrait)
     }
 }

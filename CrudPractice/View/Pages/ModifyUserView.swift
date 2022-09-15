@@ -19,6 +19,7 @@ struct ModifyUserView: View {
                 VStack(){
                     //Profile Image
                     ProfileImageView()
+                        
                     
                     // TextFields
                     UserTextFieldView(label: "Name", text: $modifyUserViewModel.user.name)
@@ -29,7 +30,7 @@ struct ModifyUserView: View {
                         Text("Education")
                             .frame(minWidth: 100, alignment: .leading)
                         TextEditor(text: $modifyUserViewModel.user.education)
-                            .padding(8)
+                            //.padding(8)
                             .border(.black)
                     }
                     
@@ -38,7 +39,7 @@ struct ModifyUserView: View {
                         Text("About")
                             .frame(minWidth: 100, alignment: .leading)
                         TextEditor(text: $modifyUserViewModel.user.about)
-                            .padding(8)
+                            //.padding(8)
                             .border(.black)
                     }
                     
@@ -81,5 +82,6 @@ struct ModifyUserView: View {
 struct ModifyUserView_Previews: PreviewProvider {
     static var previews: some View {
         ModifyUserView(userID: 0)
+.previewInterfaceOrientation(.landscapeLeft)
     }
 }

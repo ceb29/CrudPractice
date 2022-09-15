@@ -16,6 +16,7 @@ struct UsersView: View {
             ZStack {
                 //Background Color
                 BackgroundView()
+                    
                 
                 //Grid of User Cards
                 VStack {
@@ -45,6 +46,7 @@ struct UsersView: View {
             } // ZStack
             .navigationBarTitleDisplayMode(.inline)
         }// NavigationView
+            .navigationViewStyle(.stack)
     }
 }
 

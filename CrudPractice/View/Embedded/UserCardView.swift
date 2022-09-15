@@ -15,6 +15,7 @@ struct UserCardView: View {
     var body: some View {
         HStack {
             ProfileImageView()
+                .padding()
             
             VStack(spacing: 10){
                     HStack{

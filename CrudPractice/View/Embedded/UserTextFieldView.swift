@@ -17,7 +17,7 @@ struct UserTextFieldView: View {
                 .frame(maxWidth: 100, alignment: .leading)
 
             TextField("", text: $text)
-                .padding(8)
+                .padding(.leading, 5)
                 .border(.black)
         }
     }
