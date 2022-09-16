@@ -17,7 +17,6 @@ class UsersViewModel: ObservableObject{
                 return
             }
            
-            
             DispatchQueue.main.async {
                 self?.users = data!
             }

@@ -35,12 +35,13 @@ struct SaveNewUserView: View {
                     }
                     
                     //Save Button
+                    
+                    //need to add alert view instead of text
                     CustomButtonView(image: "square.and.arrow.down", label: "Save")
                         .onTapGesture {
                             print("save")
                             saveNewUserViewModel.addUser()
                         }
-                    
                 } //VStack
                     .padding()
                     .background(.white)

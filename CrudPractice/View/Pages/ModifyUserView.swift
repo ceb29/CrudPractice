@@ -42,6 +42,7 @@ struct ModifyUserView: View {
                     
                     //Modify and Delete Buttons
                     HStack(spacing: 40){
+                        //need to add alert view for update instead of text
                         CustomButtonView(image: "pencil", label: "Modify")
                             .onTapGesture {
                                 modifyUserViewModel.updateUser()
@@ -59,7 +60,6 @@ struct ModifyUserView: View {
                                 Button("No"){}
                             }
                     }
-                    
                 } //VStack
                     .padding()
                     .background(.white)

@@ -13,7 +13,6 @@ class ModifyUserViewModel: ObservableObject{
     @Published var modifySuccessFlag: Bool = false
     
     func getUserData(id: Int){
-        //this is just for testing need to add get one user method to api service
         UsersAPIService.shared.getOneUser(id: id, comp: {[weak self] data in
             guard data != nil else{
                 print("failed to get users")
