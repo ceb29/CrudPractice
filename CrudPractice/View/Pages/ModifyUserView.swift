@@ -43,7 +43,7 @@ struct ModifyUserView: View {
                         CustomButtonView(image: "trash.fill", label: "Delete")
                             .onTapGesture {
                                 print("delete")
-                                //modifyUserViewModel.deleteUser()
+                                modifyUserViewModel.deleteUser(usera: modifyUserViewModel.user)
                             }
                     }
                     
