@@ -155,8 +155,24 @@ class UsersAPIService{
         
     }
     
-    func deleteUser(id: Int){
-        
+    func deleteUser(user : UsersModel) {
+        guard let url = URL(string: "http://localhost:3000/users/\(user.id)") else {
+            print("url not found")
+            return
+        }
+
+        let data = try? JSONEncoder().encode(user)
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.httpBody = data
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        URLSession.shared.dataTask(with: request){ data, res, error in
+            if error != nil {
+                print("error")
+                return
+            }
+        }.resume()
+
     }
-    
 }

@@ -10,7 +10,7 @@ import Foundation
 class ModifyUserViewModel: ObservableObject{
     @Published var user = UsersModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
     @Published var addUserFlag: Bool = false
-    @Published var succesfullFlag: Bool = false
+    @Published var successfullFlag: Bool = false
     
     func getUserData(id: Int){
         //this is just for testing need to add get one user method to api service
@@ -28,8 +28,12 @@ class ModifyUserViewModel: ObservableObject{
         })
     }
     
-    func deleteUser(){
+    func deleteUser(usera: UsersModel){
         //need to make delete API call
+        //print("user id to delete here: ", id)
+        //let parameters : [String: Any] = ["id": id]
+        print("user to delete, ", usera)
+        UsersAPIService.shared.deleteUser(user: usera)
     }
     
     func updateUser(){

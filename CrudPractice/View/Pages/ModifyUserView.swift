@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct ModifyUserView: View {
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
     var userID: Int
+    @State private var showingAlert = false
     @StateObject var modifyUserViewModel = ModifyUserViewModel()
+    
     
     var body: some View {
         ZStack{
@@ -42,8 +46,14 @@ struct ModifyUserView: View {
                             }
                         CustomButtonView(image: "trash.fill", label: "Delete")
                             .onTapGesture {
-                                print("delete")
-                                //modifyUserViewModel.deleteUser()
+                                showingAlert = true
+                            }
+                            .alert("Delete Item?", isPresented: $showingAlert){
+                                Button("Yes"){
+                                    modifyUserViewModel.deleteUser(usera: modifyUserViewModel.user)
+                                    presentationMode.wrappedValue.dismiss()
+                                }
+                                Button("No"){}
                             }
                     }
                     
@@ -60,9 +70,9 @@ struct ModifyUserView: View {
     }
 }
 
-struct ModifyUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        ModifyUserView(userID: 0)
-.previewInterfaceOrientation(.portraitUpsideDown)
-    }
-}
+//struct ModifyUserView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ModifyUserView(userID: 0, rootPresenting: false)
+//.previewInterfaceOrientation(.portraitUpsideDown)
+//    }
+//}
