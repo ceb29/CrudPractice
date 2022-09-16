@@ -10,7 +10,7 @@ import Foundation
 class ModifyUserViewModel: ObservableObject{
     @Published var user = UsersModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
     @Published var addUserFlag: Bool = false
-    @Published var successfullFlag: Bool = false
+    @Published var modifySuccessFlag: Bool = false
     
     func getUserData(id: Int){
         //this is just for testing need to add get one user method to api service
@@ -39,6 +39,11 @@ class ModifyUserViewModel: ObservableObject{
     func updateUser(){
         //need to make update API call
         if checkFieldNotEmpty(text: user.name) && checkFieldNotEmpty(text: user.occupation) &&  checkFieldNotEmpty(text: user.education) &&  checkFieldNotEmpty(text: user.phone) && checkFieldNotEmpty(text: user.about){
+            UsersAPIService.shared.updateUser(user: user, comp: {[weak self] status in
+                DispatchQueue.main.async {
+                    self?.modifySuccessFlag = status
+                }
+            })
             addUserFlag = false
         }
         else{

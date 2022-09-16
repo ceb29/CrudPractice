@@ -20,7 +20,7 @@ class UsersAPIService{
     private init(){
         
     }
-    
+        
     func getUsers(comp: @escaping ([UsersModel]?) -> ()){
         let urlRequest = URL(string: "http://localhost:3000/users")
         
@@ -151,8 +151,68 @@ class UsersAPIService{
         }
     }
     
-    func updateUser(id: Int, body: [String : String]){
-        
+    func updateUser(user: UsersModel, comp: @escaping (Bool) -> ()){
+        //Note:
+        //need to add the upload task to its own func
+        //only difference between this and save is url and request type
+        var status: Bool = false
+        do{
+            let userData = try JSONEncoder().encode(user)
+            let url = URL(string: "http://localhost:3000/users/" + String(user.id))
+            
+            guard url != nil else{
+                print("url nil")
+                comp(status)
+                return
+            }
+            
+            var urlRequest = URLRequest(url: url!)
+            urlRequest.httpMethod = "Put"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            let uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: userData){data, response, error in
+                guard error == nil else{
+                    print("error during upload task")
+                    comp(status)
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse else{
+                    print("no response")
+                    comp(status)
+                    return
+                }
+                
+                guard response.statusCode > 199, response.statusCode < 300 else{
+                    print("error with server")
+                    print(response.statusCode)
+                    comp(status)
+                    return
+                }
+                
+                if response.mimeType != nil && response.mimeType == "application/json"{
+                    if data != nil{
+                        let dataReturned = String(data: data!, encoding: .utf8)
+                        guard dataReturned != nil else{
+                            print("failed to convert data")
+                            comp(status) //need to add enumeration for different status cases
+                            return
+                        }
+                        print("Post data: " + dataReturned!)
+                    }
+                    else{
+                        print("no data returned from post")
+                    }
+                }
+                status = true
+                comp(status)
+            }
+            uploadTask.resume()
+        }
+        catch{
+            print("json encoder error")
+            comp(status)
+        }
     }
     
     func deleteUser(user : UsersModel) {

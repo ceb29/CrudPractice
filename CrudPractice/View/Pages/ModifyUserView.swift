@@ -31,8 +31,11 @@ struct ModifyUserView: View {
                     
                     //Alert Messages
                     if modifyUserViewModel.addUserFlag == true{
-                        Text("Please fill in both fields")
+                        Text("Please fill in all fields")
                             .foregroundColor(.red)
+                    }
+                    if modifyUserViewModel.modifySuccessFlag == true{
+                        Text("User has been successfully modified")
                     }
                     
                     Spacer()
@@ -41,9 +44,9 @@ struct ModifyUserView: View {
                     HStack(spacing: 40){
                         CustomButtonView(image: "pencil", label: "Modify")
                             .onTapGesture {
-                                print("update")
-                                //modifyUserViewModel.updateUser()
+                                modifyUserViewModel.updateUser()
                             }
+                        
                         CustomButtonView(image: "trash.fill", label: "Delete")
                             .onTapGesture {
                                 showingAlert = true
