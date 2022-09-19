@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SaveNewUserViewModel: ObservableObject{
+class SaveNewUserViewModel: UserFieldsViewModel, ObservableObject{
     @Published var user = NewUserModel(name: "", occupation: "", education: "", phone: "", about: "")
     @Published var addUserFlag: Bool = false
     @Published var successfullFlag: Bool = false
@@ -28,24 +28,6 @@ class SaveNewUserViewModel: ObservableObject{
         else{
             addUserFlag = true
         }
-    }
-    
-    func checkUserFields(user: NewUserModel) -> Bool{
-        //method to check if user fields are blank
-        //returns true if fields are not blank
-        if checkFieldNotEmpty(text: user.name) && checkFieldNotEmpty(text: user.occupation) &&  checkFieldNotEmpty(text: user.education) &&  checkFieldNotEmpty(text: user.phone) && checkFieldNotEmpty(text: user.about){
-            return true
-        }
-        return false
-    }
-    
-    func checkFieldNotEmpty(text: String) -> Bool{
-        //method to check if a single field is blank
-        //return true if not blank
-        if text == ""{
-            return false
-        }
-        return true
     }
 }
 
