@@ -11,14 +11,14 @@ class UsersViewModel: ObservableObject{
     @Published var users : [UserModel] = []
     
     func getUsers(){
-        UsersAPIService.shared.getUsers(comp: {[weak self] data in
-            guard data != nil else{
+        UsersAPIService.shared.getUsers(comp: {[weak self] usersData in
+            guard usersData != nil else{
                 print("failed to get users")
                 return
             }
            
             DispatchQueue.main.async {
-                self?.users = data!
+                self?.users = usersData!
             }
         })
     }
