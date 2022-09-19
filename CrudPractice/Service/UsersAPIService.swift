@@ -5,13 +5,6 @@
 //  Created by admin on 9/14/22.
 //
 
-//to do:
-//add comments
-//pass errors in completion
-//add method for upload task to reduce duplication in put and post request
-//add alerts if data fails to load in views
-//add alerts for success (checkmarks in views)
-
 import Foundation
 
 class UsersAPIService{
@@ -26,17 +19,20 @@ class UsersAPIService{
         
         guard urlRequest != nil else{
             print("url is nil")
+            comp(nil)
             return
         }
         
         let datask = URLSession.shared.dataTask(with: urlRequest!, completionHandler: {data, response, error in
             guard data != nil else{
                 print("data is nil")
+                comp(nil)
                 return
             }
             
             guard error == nil else{
                 print("error during datask")
+                comp(nil)
                 return
             }
             
@@ -49,6 +45,7 @@ class UsersAPIService{
             catch{
                 print("decoder error")
                 print(error)
+                comp(nil)
             }
             
         })
@@ -60,17 +57,20 @@ class UsersAPIService{
         
         guard urlRequest != nil else{
             print("url is nil")
+            comp(nil)
             return
         }
         
         let datask = URLSession.shared.dataTask(with: urlRequest!, completionHandler: {data, response, error in
             guard data != nil else{
                 print("data is nil")
+                comp(nil)
                 return
             }
             
             guard error == nil else{
                 print("error during datask")
+                comp(nil)
                 return
             }
             
@@ -83,6 +83,7 @@ class UsersAPIService{
             catch{
                 print("decoder error")
                 print(error)
+                comp(nil)
             }
             
         })
