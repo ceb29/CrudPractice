@@ -8,7 +8,8 @@
 import Foundation
 
 class UsersViewModel: ObservableObject{
-    @Published var users : [UserModel] = []
+    @Published var users: [UserModel] = []
+    @Published var getUsersDataFlag: Bool = true
     
     func getUsers(){
         //get all users stored in database using a get request
@@ -16,10 +17,14 @@ class UsersViewModel: ObservableObject{
             //check if data is nil
             guard usersData != nil else{
                 print("failed to get users")
+                DispatchQueue.main.async {
+                    self?.getUsersDataFlag = false
+                }
                 return
             }
            
             DispatchQueue.main.async {
+                self?.getUsersDataFlag = true
                 self?.users = usersData!
             }
         })

@@ -7,8 +7,9 @@
 
 import Foundation
 
-class ModifyUserViewModel: ObservableObject{
-    @Published var user = UserModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
+class ModifyUserViewModel: UserFieldsViewModel, ObservableObject{
+    @Published var user = UserModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "")
+    @Published var getUserDataFlag: Bool = true
     @Published var addUserFlag: Bool = false
     @Published var modifySuccessFlag: Bool = false
     
@@ -19,11 +20,15 @@ class ModifyUserViewModel: ObservableObject{
             //check if data is nil
             guard user != nil else{
                 print("failed to get users")
+                DispatchQueue.main.async {
+                    self?.getUserDataFlag = false
+                }
                 return
             }
             
             //update user fields
             DispatchQueue.main.async {
+                self?.getUserDataFlag = true
                 self?.user = user!
             }
         })
@@ -61,23 +66,5 @@ class ModifyUserViewModel: ObservableObject{
         else{
             addUserFlag = true
         }
-    }
-    
-    func checkUserFields(user: NewUserModel) -> Bool{
-        //method to check if user fields are blank
-        //returns true if fields are not blank
-        if checkFieldNotEmpty(text: user.name) && checkFieldNotEmpty(text: user.occupation) &&  checkFieldNotEmpty(text: user.education) &&  checkFieldNotEmpty(text: user.phone) && checkFieldNotEmpty(text: user.about){
-            return true
-        }
-        return false
-    }
-    
-    func checkFieldNotEmpty(text: String) -> Bool{
-        //method to check if a single field is blank
-        //return true if not blank
-        if text == ""{
-            return false
-        }
-        return true
     }
 }
