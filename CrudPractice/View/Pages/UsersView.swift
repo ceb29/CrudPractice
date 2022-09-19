@@ -17,7 +17,6 @@ struct UsersView: View {
                 //Background Color
                 BackgroundView()
                     
-                
                 //Grid of User Cards
                 VStack {
                     ScrollView{

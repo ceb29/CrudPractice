@@ -13,22 +13,24 @@ class ModifyUserViewModel: ObservableObject{
     @Published var modifySuccessFlag: Bool = false
     
     func getUserData(id: Int){
+        //get request for the current user id
+        //could just pass data between views
         UsersAPIService.shared.getOneUser(id: id, comp: {[weak self] user in
+            //check if data is nil
             guard user != nil else{
                 print("failed to get users")
                 return
             }
             
-            let userData = user!
-            
+            //update user fields
             DispatchQueue.main.async {
-                self?.user = userData
+                self?.user = user!
             }
         })
     }
     
     func deleteUser(usera: UserModel){
-        //need to make delete API call
+        //delete API call
         //print("user id to delete here: ", id)
         //let parameters : [String: Any] = ["id": id]
         print("user to delete, ", usera)
@@ -36,11 +38,15 @@ class ModifyUserViewModel: ObservableObject{
     }
     
     func updateUser(){
-        //need to make update API call
+        //method for modifying user with put request
+        
+        //create new var with NewUserModel type for api method
         let updatedUser = NewUserModel(name: user.name, occupation: user.occupation, education: user.education, phone: user.phone, about: user.about)
         
-        if checkFieldNotEmpty(text: user.name) && checkFieldNotEmpty(text: user.occupation) &&  checkFieldNotEmpty(text: user.education) &&  checkFieldNotEmpty(text: user.phone) && checkFieldNotEmpty(text: user.about){
-            
+        //check if fields are blank and set addUserFlag if they are blank
+        //then use api call to update user
+        //set modifySuccessFlag if api call was successful
+        if checkUserFields(user: updatedUser){
             UsersAPIService.shared.uploadUserData(user: updatedUser, urlString: "http://localhost:3000/users/\(user.id)", requestType: "Put", comp: {[weak self] status in
                 
                 DispatchQueue.main.async {
@@ -57,12 +63,18 @@ class ModifyUserViewModel: ObservableObject{
         }
     }
     
-    func checkUserFields(user: UserModel){
-        
+    func checkUserFields(user: NewUserModel) -> Bool{
+        //method to check if user fields are blank
+        //returns true if fields are not blank
+        if checkFieldNotEmpty(text: user.name) && checkFieldNotEmpty(text: user.occupation) &&  checkFieldNotEmpty(text: user.education) &&  checkFieldNotEmpty(text: user.phone) && checkFieldNotEmpty(text: user.about){
+            return true
+        }
+        return false
     }
     
-    //need to fix this duplicate code
     func checkFieldNotEmpty(text: String) -> Bool{
+        //method to check if a single field is blank
+        //return true if not blank
         if text == ""{
             return false
         }

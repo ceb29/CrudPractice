@@ -18,14 +18,15 @@ struct ModifyUserView: View {
     
     var body: some View {
         ZStack{
+            //Background Color
             BackgroundView()
             
+            //Outer Vstack for shadow
             VStack {
                 VStack(){
                     //Profile Image
                     ProfileImageView()
                         
-                    
                     // TextFields
                     UserTextFieldsCardView(name: $modifyUserViewModel.user.name, occupation: $modifyUserViewModel.user.occupation, education: $modifyUserViewModel.user.education, phone: $modifyUserViewModel.user.phone, about: $modifyUserViewModel.user.about)
                     
@@ -34,6 +35,7 @@ struct ModifyUserView: View {
                         Text("Please fill in all fields")
                             .foregroundColor(.red)
                     }
+                    
                     if modifyUserViewModel.modifySuccessFlag == true{
                         Text("User has been successfully modified")
                     }
@@ -59,17 +61,17 @@ struct ModifyUserView: View {
                                 }
                                 Button("No"){}
                             }
-                    }
-                } //VStack
+                    }// HStack
+                } // VStack
                     .padding()
                     .background(.white)
                     .cornerRadius(10)
-            } //VStack
+            } // VStack
                 .shadow(color: .gray, radius: 1, x: 0, y: 4)
                 .padding([.top, .bottom], 120)
                 .padding([.leading, .trailing], 40)
-        }
-        .onAppear {modifyUserViewModel.getUserData(id: userID)}
+        }// ZStack
+            .onAppear {modifyUserViewModel.getUserData(id: userID)}
     }
 }
 

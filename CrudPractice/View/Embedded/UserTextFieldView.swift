@@ -12,13 +12,16 @@ struct UserTextFieldView: View {
     @Binding var text: String
     
     var body: some View {
+        //View used for single line text fields
         HStack {
+            //Label
             Text(label)
                 .frame(maxWidth: 100, alignment: .leading)
-
+            
+            //TextField
             TextField("", text: $text)
                 .padding(.leading, 5)
                 .border(.black)
-        }
+        }// HStack
     }
 }

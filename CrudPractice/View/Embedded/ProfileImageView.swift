@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileImageView: View {
     var body: some View {
+        //Profile Icon
         Image(systemName: "person.circle.fill")
             .resizable()
             .frame(width: 70, height: 70)

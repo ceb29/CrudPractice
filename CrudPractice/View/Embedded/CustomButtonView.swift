@@ -12,8 +12,12 @@ struct CustomButtonView: View {
     var label: String
     
     var body: some View {
-        HStack(){
+        //View used for all buttons
+        HStack{
+            //Icon
             Image(systemName: image)
+            
+            //Text
             Text(label)
         }// HStack
             .frame(width: 100, height: 50)

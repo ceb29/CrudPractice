@@ -15,11 +15,13 @@ struct UserTextFieldsCardView: View {
     @Binding var about: String
     
     var body: some View {
-        // TextFields
+        //Name TextField
         UserTextFieldView(label: "Name", text: $name)
-
+        
+        //Occupation TextField
         UserTextFieldView(label: "Occupation", text: $occupation)
         
+        //Education TextEditor
         HStack{
             Text("Education")
                 .frame(minWidth: 100, alignment: .leading)
@@ -27,8 +29,10 @@ struct UserTextFieldsCardView: View {
                 .border(.black)
         }
         
+        //Phone TextField
         UserTextFieldView(label: "Phone", text: $phone)
         
+        //About TextEditor
         HStack{
             Text("About")
                 .frame(minWidth: 100, alignment: .leading)

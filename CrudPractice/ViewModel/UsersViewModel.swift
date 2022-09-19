@@ -11,7 +11,9 @@ class UsersViewModel: ObservableObject{
     @Published var users : [UserModel] = []
     
     func getUsers(){
+        //get all users stored in database using a get request
         UsersAPIService.shared.getUsers(comp: {[weak self] usersData in
+            //check if data is nil
             guard usersData != nil else{
                 print("failed to get users")
                 return

@@ -16,6 +16,7 @@ struct SaveNewUserView: View {
             //Background Color
             BackgroundView()
             
+            //Outer VStack for shadow
             VStack{
                 VStack(){
                     //Profile Image
@@ -35,8 +36,6 @@ struct SaveNewUserView: View {
                     }
                     
                     //Save Button
-                    
-                    //need to add alert view instead of text
                     CustomButtonView(image: "square.and.arrow.down", label: "Save")
                         .onTapGesture {
                             print("save")
@@ -52,9 +51,7 @@ struct SaveNewUserView: View {
             .padding([.leading, .trailing], 40)
                 
         } // ZStack
-
     }
-
 }
 
 struct SaveNewUserView_Previews: PreviewProvider {

@@ -14,28 +14,32 @@ struct UserCardView: View {
     
     var body: some View {
         HStack {
+            //Profile Icon
             ProfileImageView()
                 .padding()
             
+            //Profile Text
             VStack(spacing: 10){
+                    //Name
                     HStack{
                         Text(name)
                             .font(.title)
                         Spacer()
                     }
-                    
+                
+                    //Education
                     HStack{
                         Text(education)
                         Spacer()
                     }
-                   
+                
+                    //Phone
                     HStack{
                         Text(phone)
                         Spacer()
                     }
-
-                }
-        }
+                }// VStack
+        }// HStack
             .frame(height: 150)
             .background(.white)
             .cornerRadius(10)
