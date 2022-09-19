@@ -17,7 +17,7 @@
 		84B0ABED28D25D0300F47069 /* CrudPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABEC28D25D0300F47069 /* CrudPracticeUITests.swift */; };
 		84B0ABEF28D25D0300F47069 /* CrudPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0ABEE28D25D0300F47069 /* CrudPracticeUITestsLaunchTests.swift */; };
 		84B0AC0728D273E100F47069 /* UsersAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AC0628D273E100F47069 /* UsersAPIService.swift */; };
-		84B0AC0928D275C100F47069 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AC0828D275C100F47069 /* UsersModel.swift */; };
+		84B0AC0928D275C100F47069 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AC0828D275C100F47069 /* UserModel.swift */; };
 		84B0AC0B28D2766600F47069 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AC0A28D2766600F47069 /* UsersViewModel.swift */; };
 		84B0AC0D28D2767900F47069 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AC0C28D2767900F47069 /* UsersView.swift */; };
 		84B0AC0F28D280B700F47069 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AC0E28D280B700F47069 /* AddButtonView.swift */; };
@@ -63,7 +63,7 @@
 		84B0ABEC28D25D0300F47069 /* CrudPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudPracticeUITests.swift; sourceTree = "<group>"; };
 		84B0ABEE28D25D0300F47069 /* CrudPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		84B0AC0628D273E100F47069 /* UsersAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersAPIService.swift; sourceTree = "<group>"; };
-		84B0AC0828D275C100F47069 /* UsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersModel.swift; sourceTree = "<group>"; };
+		84B0AC0828D275C100F47069 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		84B0AC0A28D2766600F47069 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		84B0AC0C28D2767900F47069 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		84B0AC0E28D280B700F47069 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		84B0ABFB28D25D1100F47069 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				84B0AC0828D275C100F47069 /* UsersModel.swift */,
+				84B0AC0828D275C100F47069 /* UserModel.swift */,
 				846CA2BA28D3CDB8000FB1A2 /* NewUserModel.swift */,
 			);
 			path = Model;
@@ -365,7 +365,7 @@
 				84C2973428D2C09D00053D28 /* ModifyUserView.swift in Sources */,
 				84CAF34428D2B47C0090035D /* UserTextFieldView.swift in Sources */,
 				84CAF33628D2A57A0090035D /* BackgroundView.swift in Sources */,
-				84B0AC0928D275C100F47069 /* UsersModel.swift in Sources */,
+				84B0AC0928D275C100F47069 /* UserModel.swift in Sources */,
 				84B0ABD428D25D0100F47069 /* ContentView.swift in Sources */,
 				84B0ABD228D25D0100F47069 /* CrudPracticeApp.swift in Sources */,
 				84C2973628D2C16800053D28 /* ModifyUserViewModel.swift in Sources */,

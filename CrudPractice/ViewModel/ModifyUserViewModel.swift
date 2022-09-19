@@ -8,26 +8,26 @@
 import Foundation
 
 class ModifyUserViewModel: ObservableObject{
-    @Published var user = UsersModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
+    @Published var user = UserModel(id: -1, name: "", occupation: "", education: "", phone: "", about: "") //need to make a custom struct for this
     @Published var addUserFlag: Bool = false
     @Published var modifySuccessFlag: Bool = false
     
     func getUserData(id: Int){
-        UsersAPIService.shared.getOneUser(id: id, comp: {[weak self] data in
-            guard data != nil else{
+        UsersAPIService.shared.getOneUser(id: id, comp: {[weak self] user in
+            guard user != nil else{
                 print("failed to get users")
                 return
             }
             
-            let usersData = data!
+            let userData = user!
             
             DispatchQueue.main.async {
-                self?.user = usersData
+                self?.user = userData
             }
         })
     }
     
-    func deleteUser(usera: UsersModel){
+    func deleteUser(usera: UserModel){
         //need to make delete API call
         //print("user id to delete here: ", id)
         //let parameters : [String: Any] = ["id": id]
@@ -37,17 +37,28 @@ class ModifyUserViewModel: ObservableObject{
     
     func updateUser(){
         //need to make update API call
+        let updatedUser = NewUserModel(name: user.name, occupation: user.occupation, education: user.education, phone: user.phone, about: user.about)
+        
         if checkFieldNotEmpty(text: user.name) && checkFieldNotEmpty(text: user.occupation) &&  checkFieldNotEmpty(text: user.education) &&  checkFieldNotEmpty(text: user.phone) && checkFieldNotEmpty(text: user.about){
-            UsersAPIService.shared.updateUser(user: user, comp: {[weak self] status in
+            
+            UsersAPIService.shared.uploadUserData(user: updatedUser, urlString: "http://localhost:3000/users/\(user.id)", requestType: "Put", comp: {[weak self] status in
+                
                 DispatchQueue.main.async {
                     self?.modifySuccessFlag = status
                 }
+                
             })
+            
             addUserFlag = false
+            
         }
         else{
             addUserFlag = true
         }
+    }
+    
+    func checkUserFields(user: UserModel){
+        
     }
     
     //need to fix this duplicate code

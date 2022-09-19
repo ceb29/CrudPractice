@@ -8,7 +8,7 @@
 import Foundation
 
 class UsersViewModel: ObservableObject{
-    @Published var users : [UsersModel] = []
+    @Published var users : [UserModel] = []
     
     func getUsers(){
         UsersAPIService.shared.getUsers(comp: {[weak self] data in
