@@ -63,7 +63,7 @@ struct ModifyUserView: View {
                                 Button("No"){}
                             }
                     }// HStack
-                        .padding(.vertical)
+                        .padding()
 
                 } // VStack
                     .background(.white)
