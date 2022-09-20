@@ -22,52 +22,52 @@ struct ModifyUserView: View {
             BackgroundView()
             
             if modifyUserViewModel.getUserDataFlag{
-                //Outer Vstack for shadow
-                VStack {
-                    VStack(){
-                        //Profile Image
-                        ProfileImageView()
-                            
-                        // TextFields
-                        UserTextFieldsCardView(name: $modifyUserViewModel.user.name, occupation: $modifyUserViewModel.user.occupation, education: $modifyUserViewModel.user.education, phone: $modifyUserViewModel.user.phone, about: $modifyUserViewModel.user.about)
+                VStack(){
+                    //Profile Image
+                    ProfileImageView()
+                        .padding(.vertical)
                         
-                        //Alert Messages
-                        if modifyUserViewModel.addUserFlag == true{
-                            Text("Please fill in all fields")
-                                .foregroundColor(.red)
-                        }
+                    // TextFields
+                    UserTextFieldsCardView(name: $modifyUserViewModel.user.name, occupation: $modifyUserViewModel.user.occupation, education: $modifyUserViewModel.user.education, phone: $modifyUserViewModel.user.phone, about: $modifyUserViewModel.user.about)
+                        .padding(.horizontal)
+
+                    //Alert Messages
+                    if modifyUserViewModel.addUserFlag == true{
+                        Text("Please fill in all fields")
+                            .foregroundColor(.red)
+                    }
+                    
+                    if modifyUserViewModel.modifySuccessFlag == true{
+                        Text("User has been successfully modified")
+                    }
+                    
+                    Spacer()
+                    
+                    //Modify and Delete Buttons
+                    HStack(spacing: 40){
+                        //need to add alert view for update instead of text
+                        CustomButtonView(image: "pencil", label: "Modify")
+                            .onTapGesture {
+                                modifyUserViewModel.updateUser()
+                            }
                         
-                        if modifyUserViewModel.modifySuccessFlag == true{
-                            Text("User has been successfully modified")
-                        }
-                        
-                        Spacer()
-                        
-                        //Modify and Delete Buttons
-                        HStack(spacing: 40){
-                            //need to add alert view for update instead of text
-                            CustomButtonView(image: "pencil", label: "Modify")
-                                .onTapGesture {
-                                    modifyUserViewModel.updateUser()
+                        CustomButtonView(image: "trash.fill", label: "Delete")
+                            .onTapGesture {
+                                showingAlert = true
+                            }
+                            .alert("Delete Item?", isPresented: $showingAlert){
+                                Button("Yes"){
+                                    modifyUserViewModel.deleteUser(usera: modifyUserViewModel.user)
+                                    presentationMode.wrappedValue.dismiss()
                                 }
-                            
-                            CustomButtonView(image: "trash.fill", label: "Delete")
-                                .onTapGesture {
-                                    showingAlert = true
-                                }
-                                .alert("Delete Item?", isPresented: $showingAlert){
-                                    Button("Yes"){
-                                        modifyUserViewModel.deleteUser(usera: modifyUserViewModel.user)
-                                        presentationMode.wrappedValue.dismiss()
-                                    }
-                                    Button("No"){}
-                                }
-                        }// HStack
-                    } // VStack
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
+                                Button("No"){}
+                            }
+                    }// HStack
+                        .padding(.vertical)
+
                 } // VStack
+                    .background(.white)
+                    .cornerRadius(10)
                     .shadow(color: .gray, radius: 1, x: 0, y: 4)
                     .padding([.top, .bottom], 120)
                     .padding([.leading, .trailing], 40)
