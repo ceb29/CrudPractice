@@ -35,8 +35,8 @@ struct SaveNewUserView: View {
                             .foregroundColor(.red)
                     }
                     
-                    if saveNewUserViewModel.successfullFlag == true{
-                        Text("User successfully added")
+                    if saveNewUserViewModel.statusFlag == true{
+                        Text(saveNewUserViewModel.statusText)
                     }
                     
                     //Save Button

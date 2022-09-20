@@ -10,7 +10,8 @@ import Foundation
 class SaveNewUserViewModel: UserFieldsViewModel, ObservableObject{
     @Published var user = NewUserModel(name: "", occupation: "", education: "", phone: "", about: "")
     @Published var addUserFlag: Bool = false
-    @Published var successfullFlag: Bool = false
+    @Published var statusFlag: Bool = false
+    @Published var statusText: String = ""
 
     func addUser(){
         //method for adding a user using a post request
@@ -18,8 +19,18 @@ class SaveNewUserViewModel: UserFieldsViewModel, ObservableObject{
         //check if fields are blank and set addUserFlag if they are blank
         if checkUserFields(user: user){
             UsersAPIService.shared.uploadUserData(user: user, urlString: "http://localhost:3000/users/", requestType: "Post", comp: {[weak self] status in
+                var statusText : String = ""
+                
+                if status{
+                    statusText = "User successfully added"
+                }
+                else{
+                    statusText = "Failed to add new user"
+                }
+                
                 DispatchQueue.main.async {
-                    self?.successfullFlag = true
+                    self?.statusText = statusText
+                    self?.statusFlag = true
                 }
             })
             
