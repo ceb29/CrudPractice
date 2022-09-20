@@ -16,14 +16,20 @@ struct UsersView: View {
                 //Background Color
                 BackgroundView()
                 
-                if usersViewModel.getUsersDataFlag{
-                    //Grid of User Cards
-                    UserCardGridView(users: $usersViewModel.users)
-                        .padding(.top, 40)
-                        .padding(.bottom, 40)
-                }
-                else{
-                    VStack{
+                VStack(spacing: 0){
+                    //Background Bar Top
+                    BackgroundBarView()
+                        .shadow(color: .gray, radius: 1, x: 0, y: 4)
+                    
+                    //Grid View and Alert Message
+                    if usersViewModel.getUsersDataFlag{
+                        //Grid of User Cards
+                        UserCardGridView(users: $usersViewModel.users)
+                            
+                    }
+                    else{
+                        Spacer()
+                        
                         //Alert Message
                         Text("Failed to load users.")
                             .font(.title)
@@ -34,8 +40,14 @@ struct UsersView: View {
                             .onTapGesture {
                                 usersViewModel.getUsers()
                             }
-                    }// VStack
-                }
+                        
+                        Spacer()
+                    }
+
+                    //Background Bar Bottom
+                    BackgroundBarView()
+                    
+                } // VStack
             } // ZStack
                 .onAppear {usersViewModel.getUsers()}
                 .navigationBarTitleDisplayMode(.inline)
@@ -47,5 +59,6 @@ struct UsersView: View {
 struct UsersView_Previews: PreviewProvider {
     static var previews: some View {
         UsersView()
+.previewInterfaceOrientation(.portrait)
     }
 }

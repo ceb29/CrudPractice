@@ -15,40 +15,54 @@ struct SaveNewUserView: View {
         ZStack {
             //Background Color
             BackgroundView()
-
-            VStack(){
-                //Profile Image
-                ProfileImageView()
-                    .padding(.vertical)
+            
+            Spacer()
+            
+            VStack (spacing: 0){
+                //Background Bar Top
+                BackgroundBarView()
+                    .shadow(color: .gray, radius: 1, x: 0, y: 4)
                 
-                // TextFields
-                UserTextFieldsCardView(name: $saveNewUserViewModel.user.name, occupation: $saveNewUserViewModel.user.occupation, education: $saveNewUserViewModel.user.education, phone: $saveNewUserViewModel.user.phone, about: $saveNewUserViewModel.user.about)
-                    .padding(.horizontal)
-                
-                //Alert Messages
-                if saveNewUserViewModel.addUserFlag == true{
-                    Text("Please fill in all fields")
-                        .foregroundColor(.red)
-                }
-                
-                if saveNewUserViewModel.successfullFlag == true{
-                    Text("User successfully added")
-                }
-                
-                //Save Button
-                CustomButtonView(image: "square.and.arrow.down", label: "Save")
-                    .onTapGesture {
-                        print("save")
-                        saveNewUserViewModel.addUser()
+                VStack(){
+                    //Profile Image
+                    ProfileImageView()
+                        .padding(.vertical)
+                    
+                    // TextFields
+                    UserTextFieldsCardView(name: $saveNewUserViewModel.user.name, occupation: $saveNewUserViewModel.user.occupation, education: $saveNewUserViewModel.user.education, phone: $saveNewUserViewModel.user.phone, about: $saveNewUserViewModel.user.about)
+                        .padding(.horizontal)
+                    
+                    //Alert Messages
+                    if saveNewUserViewModel.addUserFlag == true{
+                        Text("Please fill in all fields")
+                            .foregroundColor(.red)
                     }
-                    .padding(.vertical)
+                    
+                    if saveNewUserViewModel.successfullFlag == true{
+                        Text("User successfully added")
+                    }
+                    
+                    //Save Button
+                    CustomButtonView(image: "square.and.arrow.down", label: "Save")
+                        .onTapGesture {
+                            print("save")
+                            saveNewUserViewModel.addUser()
+                        }
+                        .padding(.vertical)
+                    
+                } //VStack
+                    .background(.white)
+                    .cornerRadius(10)
+                    .shadow(color: .gray, radius: 1, x: 0, y: 4)
+                    .padding(.vertical, UIScreen.main.bounds.size.height/10)
+                    .padding(.horizontal, UIScreen.main.bounds.size.height/20)
                 
-            } //VStack
-                .background(.white)
-                .cornerRadius(10)
-                .shadow(color: .gray, radius: 1, x: 0, y: 4)
-                .padding([.top, .bottom], 150)
-                .padding([.leading, .trailing], 40)
+                Spacer()
+                
+                //Background Bar Top
+                BackgroundBarView()
+                
+            }// VStack
         } // ZStack
     }
 }

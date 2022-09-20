@@ -13,27 +13,25 @@ struct UserCardGridView: View {
     
     var body: some View {
         //Scrollabel grid of user cards
-        VStack {
-            ScrollView{
-                LazyVGrid(columns: columns, spacing: 25){
-                    ForEach(users, id: \.self){user in
-                        NavigationLink(destination: ModifyUserView(userID: user.id)){
-                            UserCardView(name: user.name, education: user.education, phone: user.phone)
-                        }
-                        .foregroundColor(.black)
+        ScrollView{
+            LazyVGrid(columns: columns, spacing: 25){
+                ForEach(users, id: \.self){user in
+                    NavigationLink(destination: ModifyUserView(userID: user.id)){
+                        UserCardView(name: user.name, education: user.education, phone: user.phone)
                     }
-                    .shadow(color: .gray, radius: 1, x: 0, y: 4)
+                    .foregroundColor(.black)
                 }
-                .padding()
-            } // ScrollView
-                .overlay(
-                    NavigationLink(destination: SaveNewUserView()){
-                        AddButtonView()
-                            .padding()
-                    }
-                    , alignment: .bottomTrailing
-                )
-        } // VStack
+                .shadow(color: .gray, radius: 1, x: 0, y: 4)
+            }
+            .padding()
+        } // ScrollView
+            .overlay(
+                NavigationLink(destination: SaveNewUserView()){
+                    AddButtonView()
+                        .padding()
+                }
+                , alignment: .bottomTrailing
+            )
     }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8436BCEE28D95AAB007BBBF6 /* BackgroundBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436BCED28D95AAB007BBBF6 /* BackgroundBarView.swift */; };
 		845D343828D9326E00961C97 /* UserFieldsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D343728D9326E00961C97 /* UserFieldsViewModel.swift */; };
 		845D343A28D9338500961C97 /* UserCardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845D343928D9338500961C97 /* UserCardGridView.swift */; };
 		846CA2BB28D3CDB8000FB1A2 /* NewUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CA2BA28D3CDB8000FB1A2 /* NewUserModel.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8436BCED28D95AAB007BBBF6 /* BackgroundBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundBarView.swift; sourceTree = "<group>"; };
 		845D343728D9326E00961C97 /* UserFieldsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFieldsViewModel.swift; sourceTree = "<group>"; };
 		845D343928D9338500961C97 /* UserCardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardGridView.swift; sourceTree = "<group>"; };
 		846CA2BA28D3CDB8000FB1A2 /* NewUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserModel.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				84CAF34328D2B47C0090035D /* UserTextFieldView.swift */,
 				846CA2BF28D3E0D2000FB1A2 /* UserTextFieldsCardView.swift */,
 				845D343928D9338500961C97 /* UserCardGridView.swift */,
+				8436BCED28D95AAB007BBBF6 /* BackgroundBarView.swift */,
 			);
 			path = Embedded;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				84B0AC0728D273E100F47069 /* UsersAPIService.swift in Sources */,
 				84B0AC0D28D2767900F47069 /* UsersView.swift in Sources */,
 				84B0AC0B28D2766600F47069 /* UsersViewModel.swift in Sources */,
+				8436BCEE28D95AAB007BBBF6 /* BackgroundBarView.swift in Sources */,
 				846CA2BB28D3CDB8000FB1A2 /* NewUserModel.swift in Sources */,
 				84CAF34028D2B2030090035D /* SaveNewUserViewModel.swift in Sources */,
 				84CAF33C28D2ACE80090035D /* SaveNewUserView.swift in Sources */,
