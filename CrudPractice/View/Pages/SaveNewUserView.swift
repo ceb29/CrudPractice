@@ -5,7 +5,6 @@
 //  Created by admin on 9/14/22.
 //
 
-//need to add more lines for textfields that are longer
 import SwiftUI
 
 struct SaveNewUserView: View {
@@ -15,8 +14,6 @@ struct SaveNewUserView: View {
         ZStack {
             //Background Color
             BackgroundView()
-            
-            Spacer()
             
             VStack (spacing: 0){
                 //Background Bar Top
@@ -56,8 +53,6 @@ struct SaveNewUserView: View {
                     .shadow(color: .gray, radius: 1, x: 0, y: 4)
                     .padding(.vertical, UIScreen.main.bounds.size.height/10)
                     .padding(.horizontal, UIScreen.main.bounds.size.height/20)
-                
-                Spacer()
                 
                 //Background Bar Top
                 BackgroundBarView()
