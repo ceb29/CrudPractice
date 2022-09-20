@@ -25,7 +25,9 @@ struct UserTextFieldsCardView: View {
         HStack{
             Text("Education")
                 .frame(minWidth: 100, alignment: .leading)
+            
             TextEditor(text: $education)
+                .frame(minHeight: 28)
                 .border(.black)
         }
         
@@ -36,7 +38,9 @@ struct UserTextFieldsCardView: View {
         HStack{
             Text("About")
                 .frame(minWidth: 100, alignment: .leading)
+            
             TextEditor(text: $about)
+                .frame(minHeight: 28)
                 .border(.black)
         }
     }

@@ -46,8 +46,6 @@ struct ModifyUserView: View {
                             Text("User has been successfully modified")
                         }
                         
-                        Spacer()
-                        
                         //Modify and Delete Buttons
                         HStack(spacing: 40){
                             //need to add alert view for update instead of text
@@ -75,7 +73,7 @@ struct ModifyUserView: View {
                         .cornerRadius(10)
                         .shadow(color: .gray, radius: 1, x: 0, y: 4)
                         .padding(.vertical, UIScreen.main.bounds.size.height/10)
-                        .padding(.horizontal, UIScreen.main.bounds.size.height/20)
+                        .padding(.horizontal, UIScreen.main.bounds.size.width/10)
                 }
                 else{
                     Spacer()

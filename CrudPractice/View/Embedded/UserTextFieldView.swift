@@ -21,6 +21,7 @@ struct UserTextFieldView: View {
             //TextField
             TextField("", text: $text)
                 .padding(.leading, 5)
+                //.frame(minHeight: 28)
                 .border(.black)
         }// HStack
     }
